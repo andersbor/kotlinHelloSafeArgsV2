@@ -24,7 +24,11 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonFirst.setOnClickListener {
-            val name = binding.nameEditText.text.trim().toString()
+            val name = binding.edittextName.text.trim().toString()
+            if (name.isEmpty()) {
+                binding.edittextName.error = "No name"
+                return@setOnClickListener
+            }
 
             // Update both gradle files
             // Add argument element to nav_graph.xml (secondFragment)
